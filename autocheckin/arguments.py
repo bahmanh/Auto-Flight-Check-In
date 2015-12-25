@@ -1,3 +1,4 @@
+#author: Bahman H
 import argparse
 
 def getArgs():
@@ -6,6 +7,5 @@ def getArgs():
     parser.add_argument("lastName", help="Lase name of passenger")
     parser.add_argument("confNum", help="Confirmation number of flights")
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()
 
