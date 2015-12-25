@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selinium.webdriver.common.keys import Keys
+from selenium.webdriver.common.keys import Keys
 
 class CheckMeIn(object): 
     
@@ -8,9 +8,14 @@ class CheckMeIn(object):
         self.lastName = lastName
         self.confNum = confNum
 
-    def checkIn():
-        driver = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs', service_log_path='/dev/null')
-        driver.get("https://www.southwest.com/flight/retrieveCheckinDoc.html")
+    def checkIn(self):
+        try:
+            driver = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs', service_log_path='/dev/null')
+            driver.get("https://www.southwest.com/flight/retrieveCheckinDoc.html")
+        except selenium.common.exceptions.WebDriverException as error:
+            print error.msg
+            print "PhantomJS not found"
+            exit(0)
         
         firstNameElem = driver.find_element_by_id("firstName")
         lastNameElem = driver.find_element_by_id("lastName")
