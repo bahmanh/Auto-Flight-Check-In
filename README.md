@@ -16,9 +16,11 @@ $ pip install argparse
 ```
 
 ####How to set up
-The best way to set this up is using a cronjob set to 24 hours before your flight. [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps)
+The best way to set this up is using a cronjob. [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps)
 
 Easier way is to use a visual crontab [utility](http://www.corntab.com/pages/crontab-gui).
+
+The cronjob must be set up to exactly 24 hours before your flight. 
 
 Use the following command
 ```
