@@ -1,6 +1,6 @@
 # Auto-Flight-Check-In
 <hr>
-Have you ever wanted to automatically check into your flight without having to pay for the fees?
+Have you ever wanted to automatically check into your flight without having to pay the fees?
 
 This utility can help you out with that!
 
