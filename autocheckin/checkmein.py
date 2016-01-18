@@ -49,5 +49,4 @@ class CheckMeIn(object):
             print "***Incorrect name or confirmation number. Try again!***"
         finally:
             print "Done \n"
-            driver.close()
             driver.quit()
