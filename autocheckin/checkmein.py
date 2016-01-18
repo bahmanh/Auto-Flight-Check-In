@@ -3,8 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-import sys
+from selenium.common.exceptions import TimeoutException, WebDriverException
 
 class CheckMeIn(object): 
     
@@ -19,10 +18,10 @@ class CheckMeIn(object):
             #service_log_path is set so no logs are generated
             driver = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs', service_log_path='/dev/null')
             driver.get("https://www.southwest.com/flight/retrieveCheckinDoc.html")
-        except selenium.common.exceptions.WebDriverException as error:
+        except WebDriverException as error:
             print error.msg
             print "PhantomJS not found"
-            #sys.exit(1)
+            sys.exit(1)
 
         print "\nSuccessfully logged on \n"
 
