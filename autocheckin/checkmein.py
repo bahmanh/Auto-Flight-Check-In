@@ -13,6 +13,7 @@ class CheckMeIn(object):
         self.confNum = confNum
     
     #Using PhantomJS instead of Firefox so that this script can be run without a gui in the background
+
     def checkIn(self):
         try:
             #service_log_path is set so no logs are generated
@@ -39,11 +40,11 @@ class CheckMeIn(object):
         confNumElem.send_keys(self.confNum)
         submitButtonElem.click()
         
-        #next page
+        #Explicit wait on next page until 'printDocumentsButton' is located
+        #If not located then entered details are incorrect
         try: 
             checkinButtonElem = WebDriverWait(driver, 5).until(
-                    EC.presence_of_element_located((By.ID, "printDocumentsButton"))
-            )
+                    EC.presence_of_element_located((By.ID, "printDocumentsButton")))
             checkinButtonElem.click()
         except TimeoutException:
             print "***Incorrect name or confirmation number. Try again!***"
