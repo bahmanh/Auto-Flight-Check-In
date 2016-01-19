@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
+import sys
+import time
 
 class CheckMeIn(object): 
     
@@ -11,7 +13,6 @@ class CheckMeIn(object):
         self.firstName = firstName
         self.lastName = lastName
         self.confNum = confNum
-    
     #Using PhantomJS instead of Firefox so that this script can be run without a gui in the background
 
     def checkIn(self):
@@ -48,6 +49,14 @@ class CheckMeIn(object):
             checkinButtonElem.click()
         except TimeoutException:
             print "***Incorrect name or confirmation number. Try again!***"
-        finally:
-            print "Done \n"
-            driver.quit()
+            sys.exit(1)
+       
+        #selection email option to send boarding pass
+        emailButtonElem = driver.find_element_by_id("optionEmail")
+        continueElem = driver.find_element_by_id("checkin_button")
+        
+        emailButtonElem.click()
+        continueElem.click()
+        
+        print "Done \n"
+        driver.quit()
